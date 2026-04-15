@@ -11,7 +11,7 @@ jobs:
     env:
       UNITY_EMAIL: ${{ secrets.UNITY_EMAIL_FREE }}
       UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD_FREE }}
-      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_FREE }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
