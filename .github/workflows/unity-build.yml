@@ -9,8 +9,8 @@ jobs:
     name: Build Project
     runs-on: ubuntu-latest
     env:
-      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD_FREE }}
-      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL_FREE }}
+      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
       UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
     steps:
       - name: Checkout repo
