@@ -9,7 +9,7 @@ jobs:
     name: Build Project
     runs-on: ubuntu-latest
     env:
-      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_FREE }}
+      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD_FREE }}
       UNITY_EMAIL: ${{ secrets.UNITY_EMAIL_FREE }}
       UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
     steps:
