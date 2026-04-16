@@ -39,15 +39,20 @@ jobs:
       - name: Prepare Steam content
         run: |
           mkdir -p build/steam/content
-          rsync -av --exclude=steam build/ build/steam/content/
+          rsync -av --exclude=steam build/* build/steam/content/
+
+      - name: Debug Steam content
+        run: |
+          echo "==== FINAL STRUCTURE ===="
+          ls -R build/steam
 
       - name: Deploy to Steam
         uses: game-ci/steam-deploy@v3
         with:
           username: ${{ secrets.STEAM_USERNAME }}
-          configVdf: ${{ secrets.STEAM_CONFIG_VDF}}
+          configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
           appId: ${{ secrets.STEAM_APP_ID }}
           buildDescription: "CI Build"
           rootPath: build/steam
-          depot1Path: build/steam/content
+          depot1Path: content
           releaseBranch: yolo
