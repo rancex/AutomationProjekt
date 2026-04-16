@@ -39,7 +39,7 @@ jobs:
       - name: Prepare Steam content
         run: |
           mkdir -p build/steam/content
-          cp -r build/* build/steam/content/
+          find build -mindepth 1 -maxdepth 1 ! -name steam -exec cp -r {} build/steam/content/ \;
 
       - name: Deploy to Steam
         uses: game-ci/steam-deploy@v3
