@@ -26,7 +26,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Build
-          path: Build
+          path: build
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -34,12 +34,12 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: Build
-          path: Build
+          path: build
 
       - name: Prepare Steam content
         run: |
-          mkdir -p Build/steam/content
-          cp -r build/* Build/steam/content/
+          mkdir -p build/steam/content
+          cp -r build/* build/steam/content/
 
       - name: Deploy to Steam
         uses: game-ci/steam-deploy@v3
@@ -48,6 +48,6 @@ jobs:
           configVdf: ${{ secrets.STEAM_CONFIG_VDF}}
           appId: ${{ secrets.STEAM_APP_ID }}
           buildDescription: "CI Build"
-          rootPath: Build/steam
-          depot1Path: Build/steam/content
+          rootPath: build/steam
+          depot1Path: build/steam/content
           releaseBranch: yolo
