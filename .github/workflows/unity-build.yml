@@ -1,9 +1,10 @@
 name: Unity Build
 
 on:
-  push:
-    branches: [main]
-
+  workflow_dispatch:
+  #push:
+    #branches: [main]
+    
 jobs:
   build:
     name: Build Project
@@ -25,4 +26,28 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Build
-          path: build
+          path: Build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: Build
+          path: Build
+
+      - name: Prepare Steam content
+        run: |
+          mkdir -p Build/steam/content
+          cp -r build/* Build/steam/content/
+
+      - name: Deploy to Steam
+        uses: game-ci/steam-deploy@v3
+        with:
+          username: ${{ secrets.STEAM_USERNAME }}
+          password: ${{ secrets.STEAM_PASSWORD }}
+          appId: ${{ secrets.STEAM_APP_ID }}
+          buildDescription: "CI Build"
+          rootPath: Build/steam
+          depot1Path: Build/steam/content
+          releaseBranch: yolo

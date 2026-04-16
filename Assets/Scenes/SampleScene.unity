@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb25320a4f3ba55429a7c22ba3edd402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stuffText: {fileID: 0}
-  _stuffTextContent: 
+  _stuffText: {fileID: 685533536}
+  _stuffTextContent: Bruh
 --- !u!4 &321451288
 Transform:
   m_ObjectHideFlags: 0
@@ -610,7 +610,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1603954995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 321451287}
+        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
+        m_MethodName: UI_StuffButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1603954995
 MonoBehaviour:
   m_ObjectHideFlags: 0
