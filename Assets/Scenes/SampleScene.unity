@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stuffText: {fileID: 685533536}
-  _stuffTextContent: Bruh
+  _stuffTextContent: Hidup Toge
 --- !u!4 &321451288
 Transform:
   m_ObjectHideFlags: 0
